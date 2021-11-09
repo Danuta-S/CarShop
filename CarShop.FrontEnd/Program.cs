@@ -148,7 +148,7 @@ namespace CarShop.Frontend
                     Console.WriteLine("Do you want to print a receipt?(Yes/No)");
 
                 var yesNo = Console.ReadLine();
-                if (yesNo != "Yes")
+                if (yesNo == "Yes")
                 {
                     Receipt.GetReceipt();
                     continues = false;
