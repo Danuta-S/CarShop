@@ -39,9 +39,29 @@ namespace CarShop.Library
             }
         }
 
-        public string GetReceipt()
-        {//create new class with props
-            return null;
+        public List<Receipt> PurchasedCars = new List<Receipt>();
+
+        //public string GetReceipt()
+        //{//create new class with props
+        //    return null;
+        //}
+
+        public string GetReceipt(int id)
+        {
+            var receipt = new StringBuilder();
+
+            receipt.AppendLine("Date\t\tReceipt Number\tModel\tColor\tYear\tOdometer Reading\tLicense Number\tCar Price\tQuantity");
+            foreach (var item in PurchasedCars)
+            {
+                receipt.AppendLine($"{item.Date.ToShortDateString()}\t{item.ReceiptNumber}\t{item.Model}\t{item.Color}\t{item.Year}\t{item.OdometerReading}\t{item.LicenseNumber}\t{item.CarPrice}\t{item.Quantity}");
+            }
+
+            return receipt.ToString();
         }
+
+        //public decimal TotalCost(decimal carPrice, int quantity)
+        //{
+        //    return CarPrice * Quantity;
+        //}
     }
 }

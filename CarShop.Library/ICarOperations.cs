@@ -11,8 +11,7 @@ namespace CarShop.Library
         public void AddCarToTheList(Car car);
         public Car[] FindCarByYear(int year);
         public int FindAvailableCarsCount();
-        public string GetReceipt();
+        public string GetReceipt(int id);
         public void BuyCar(int id);
-        //Recipient();
     }
 }

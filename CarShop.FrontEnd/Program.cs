@@ -139,22 +139,19 @@ namespace CarShop.Frontend
                 Console.WriteLine("Please select a car from the list that you would like to buy:");
                 ShowListOfAllCars();
                 Console.Write($"I would like to buy a car: ");
-                //var id = Convert.ToInt32(Console.ReadLine());
-                //var selectedCar = CarOperator.BuyCar(id);
                 var selectedCar = Convert.ToInt32(Console.ReadLine());
-                //CarOperator.BuyCar(selectedCar);
-
-                    Console.WriteLine($"You added to the cart {selectedCar}");
-                    Console.WriteLine("Do you want to print a receipt?(Yes/No)");
-
+                Console.WriteLine($"You added to the cart {selectedCar}");
+                var car = GetReceipt.carArray(id);
+                //var carArray = CarOperator.GetReceipt(id);
+                var receipt = new Receipt(DateTime.Now, "123456", "Mercedes", "Red", 2014, 120000, "KZ-2165", 5000, 1);
+                receipt.car = car;
+                Console.WriteLine("Do you want to print a receipt?(Yes/No)");
                 var yesNo = Console.ReadLine();
                 if (yesNo == "Yes")
                 {
-                    Receipt.GetReceipt();
+                    car.GetReceipt();
                     continues = false;
                 }
-                var receipt = new Receipt(DateTime.Now, "123456", "Mercedes", "Red", 2014, 120000, "KZ-2165", 5000, 1);
-                receipt.car = car;
             }
         }
     }
