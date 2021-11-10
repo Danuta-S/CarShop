@@ -53,7 +53,7 @@ namespace CarShop.Library
             receipt.AppendLine("Date\t\tReceipt Number\tModel\tColor\tYear\tOdometer Reading\tLicense Number\tCar Price\tQuantity");
             foreach (var item in PurchasedCars)
             {
-                receipt.AppendLine($"{item.Date.ToShortDateString()}\t{item.ReceiptNumber}\t{item.Model}\t{item.Color}\t{item.Year}\t{item.OdometerReading}\t{item.LicenseNumber}\t{item.CarPrice}\t{item.Quantity}");
+                receipt.AppendLine($"{item.Date.ToShortDateString()}\t{item.ReceiptNumber}\t{item.OdometerReading}\t{item.LicenseNumber}\t{item.CarPrice}\t{item.Quantity}");
             }
 
             return receipt.ToString();

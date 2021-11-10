@@ -81,7 +81,7 @@ namespace CarShop.Frontend
 
         public static void AddCarToTheList()
         {
-            int id = 1;
+            int id = 0;
             var continues = true;
 
             while (continues)
@@ -117,7 +117,7 @@ namespace CarShop.Frontend
 
         public static void ShowListOfAllCars()
         {
-            int i = 1;
+            int i = 0;
 
             foreach (var car in CarOperator.CarArray)
             {
@@ -139,17 +139,21 @@ namespace CarShop.Frontend
                 Console.WriteLine("Please select a car from the list that you would like to buy:");
                 ShowListOfAllCars();
                 Console.Write($"I would like to buy a car: ");
-                var selectedCar = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine($"You added to the cart {selectedCar}");
-                var car = GetReceipt.carArray(id);
+                var carIdEntered = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine($"You added to the cart {carIdEntered}");
+                CarOperator.BuyCar(carIdEntered);
+                var selectedCar = CarOperator.CarArray.FirstOrDefault(x => x.Id == carIdEntered);
+                //var car = BuyCar(id);
+                //var car = GetReceipt.carArray(id);
                 //var carArray = CarOperator.GetReceipt(id);
-                var receipt = new Receipt(DateTime.Now, "123456", "Mercedes", "Red", 2014, 120000, "KZ-2165", 5000, 1);
-                receipt.car = car;
+                var receipt = new Receipt(DateTime.Now, "123456", 120000, "KZ-2165", 5000, 1);
+                receipt.car = selectedCar;
+                //receipt.car = car;
                 Console.WriteLine("Do you want to print a receipt?(Yes/No)");
                 var yesNo = Console.ReadLine();
                 if (yesNo == "Yes")
                 {
-                    car.GetReceipt();
+                    CarOperator.GetReceipt(carIdEntered);
                     continues = false;
                 }
             }
