@@ -10,8 +10,8 @@ namespace CarShop.Library
     {
         public void AddCarToTheList(Car car);
         public Car[] FindCarByYear(int year);
-        public int FindAvailableCarsCount();
-        public string GetReceipt(int id);
+        public void FindAvailableCarsCount();
+        public string GetReceipt(Car car);
         public void BuyCar(int id);
     }
 }
